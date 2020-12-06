@@ -10,6 +10,8 @@ public class Contact {
     private String phone;
 
 
-
-
+    @Override
+    public String toString() {
+        return name +", " +phone;
+    }
 }
