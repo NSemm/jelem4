@@ -1,4 +1,4 @@
-package com.k7;
+package com.k7.menuAction;
 
 public class ExitMenuAction implements MenuAction{
     @Override

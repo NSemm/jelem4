@@ -1,4 +1,4 @@
-package com.k7;
+package com.k7.contacts;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

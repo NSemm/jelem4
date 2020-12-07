@@ -1,5 +1,7 @@
 package com.k7;
 
+import com.k7.menuAction.MenuAction;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -20,7 +22,8 @@ public class Menu {
             }
         }
     }
-    private int runDialog(Scanner sc){
+
+    private int runDialog(Scanner sc) {
         System.out.println("Choose action!");
         System.out.println("---------------------------------");
         for (int i = 0; i < actions.length; i++) {
@@ -31,8 +34,9 @@ public class Menu {
         sc.nextLine();
         return idChoose;
     }
-    private boolean runAction (int idChoose){
-        int index = idChoose-1;
+
+    private boolean runAction(int idChoose) {
+        int index = idChoose - 1;
         actions[index].doAction();
         return actions[index].closeAfter();
     }

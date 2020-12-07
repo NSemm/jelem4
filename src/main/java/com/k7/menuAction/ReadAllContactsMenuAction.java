@@ -1,4 +1,6 @@
-package com.k7;
+package com.k7.menuAction;
+
+import com.k7.service.ContactsService;
 
 public class ReadAllContactsMenuAction implements MenuAction {
     private ContactsService contactsService;
@@ -9,12 +11,11 @@ public class ReadAllContactsMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        System.out.println("------------------------");
+        System.out.println("------Contact list------");
         for (int i = 0; i < contactsService.getAll().size(); i++) {
-            System.out.println(contactsService.getAll().get(i));
+            System.out.println(i+1 + ". "+contactsService.getAll().get(i));
         }
         System.out.println("------------------------");
-        closeAfter();
     }
 
     @Override
