@@ -7,23 +7,28 @@ import java.util.Scanner;
 
 public class Menu {
     private MenuAction[] actions = new MenuAction[0];
+    private Scanner sc;
+
+    public Menu(Scanner sc) {
+        this.sc = sc;
+    }
 
     public void addAction(MenuAction action) {
         actions = Arrays.copyOf(actions, actions.length + 1);
         actions[actions.length - 1] = action;
     }
 
-    public void run(Scanner sc) {
+    public void run() {
         boolean flagAction = false;
         if (actions.length < 1) System.out.println("before run execute addAction please!");
         else {
             while (!flagAction) {
-                flagAction = runAction(runDialog(sc));
+                flagAction = runAction(runDialog());
             }
         }
     }
 
-    private int runDialog(Scanner sc) {
+    private int runDialog() {
         System.out.println("Choose action!");
         System.out.println("---------------------------------");
         for (int i = 0; i < actions.length; i++) {
