@@ -16,6 +16,7 @@ public class Main {
         menu.addAction(new SearchByPhoneContactsMenuAction(contactsService,sc));
         menu.addAction(new SearchByNameContactsMenuAction(contactsService,sc));
         menu.addAction(new RemoveContactMenuAction(contactsService,sc));
+        menu.addAction(new SearchIPMenuAction());
         menu.addAction(new ExitMenuAction());
         menu.run();
 
