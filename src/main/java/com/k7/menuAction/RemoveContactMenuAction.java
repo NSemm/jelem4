@@ -15,6 +15,10 @@ public class RemoveContactMenuAction implements MenuAction {
         System.out.println("Enter contact's list number for delete");
         int index = sc.nextInt() - 1;
         sc.nextLine();
+        while (contactsService.getAll().checkIndex(index)) {
+            System.out.println("Invalid index. Repeat action.");
+            return;
+        }
         System.out.println(contactsService.getAll().get(index).getName() + " deleted");
         System.out.println("------------------------");
         contactsService.remove(index);

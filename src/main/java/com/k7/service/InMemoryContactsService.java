@@ -3,6 +3,8 @@ package com.k7.service;
 import com.k7.contacts.Contact;
 import com.k7.contacts.ContactsList;
 
+import java.util.List;
+
 public class InMemoryContactsService implements ContactsService {
     private ContactsList contactsList = new ContactsList();
 

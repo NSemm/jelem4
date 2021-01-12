@@ -1,9 +1,11 @@
 package com.k7.menuAction;
 
+import com.k7.contacts.Contact;
 import com.k7.service.ContactsService;
 import lombok.AllArgsConstructor;
 
 import java.util.Scanner;
+
 @AllArgsConstructor
 public class SearchByPhoneContactsMenuAction implements MenuAction {
     private ContactsService contactsService;
@@ -15,9 +17,8 @@ public class SearchByPhoneContactsMenuAction implements MenuAction {
         System.out.println("Enter the part of phone number");
         String search = sc.nextLine();
         System.out.println("------Contact list------");
-        for (int i = 0; i < contactsService.getAll().size(); i++) {
-            if (contactsService.getAll().get(i).getPhone().indexOf(search)!= -1)
-            System.out.println(++num +". "+contactsService.getAll().get(i));
+        for (Contact contact : contactsService.getAll().getByPhone(search)) {
+            System.out.println(++num + ". " + contact.toString());
         }
         System.out.println("------------------------");
     }
