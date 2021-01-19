@@ -27,7 +27,6 @@ public class ContactsList {
     }
 
 
-
     public void remove(int index) {
         contacts.remove(index);
     }
@@ -35,14 +34,16 @@ public class ContactsList {
     public int size() {
         return contacts.size();
     }
-    public List<Contact> getByName(String name){
+
+    public List<Contact> getByName(String name) {
         return (contacts.stream()
-                .filter(s->s.getName().startsWith(name))
+                .filter(s -> s.getName().startsWith(name))
                 .collect(Collectors.toList()));
     }
-    public List<Contact> getByPhone(String phone){
+
+    public List<Contact> getByPhone(String phone) {
         return (contacts.stream()
-                .filter(s->s.getPhone().indexOf(phone)!= -1)
+                .filter(s -> s.getPhone().indexOf(phone) != -1)
                 .collect(Collectors.toList()));
     }
 }
