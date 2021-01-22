@@ -7,11 +7,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class Contact {
     private String name;
+    private ContactType contactType;
     private String phone;
-
-
     @Override
     public String toString() {
-        return name + ", " + phone;
+        return name + ", "+contactType+":" + phone;
     }
 }

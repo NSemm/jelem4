@@ -2,6 +2,10 @@ package com.k7.menuAction;
 
 import com.k7.service.ContactsService;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class ReadAllContactsMenuAction implements MenuAction {
     private ContactsService contactsService;
 
@@ -11,9 +15,20 @@ public class ReadAllContactsMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
+        int nom = 1;
         System.out.println("------Contact list------");
-        for (int i = 0; i < contactsService.getAll().size(); i++) {
-            System.out.println(i+1 + ". "+contactsService.getAll().get(i));
+        Set<String> names = contactsService.getAll().get().stream()
+                .map(s -> s.getName())
+                .collect(Collectors.toSet());
+        for (String s : names) {
+            System.out.println(nom + ". " + s + ":");
+            for (int i = 0; i < contactsService.getAll().size(); i++) {
+                if (s.equals(contactsService.getAll().get(i).getName())) {
+                    System.out.println("     " + contactsService.getAll().get(i).getContactType() + ":"
+                            + contactsService.getAll().get(i).getPhone());
+                }
+            }
+            ++nom;
         }
         System.out.println("------------------------");
     }

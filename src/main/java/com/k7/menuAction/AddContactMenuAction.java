@@ -1,5 +1,7 @@
 package com.k7.menuAction;
 
+import com.k7.IoContactsToFile;
+import com.k7.contacts.ContactType;
 import com.k7.service.ContactsService;
 import com.k7.contacts.Contact;
 import lombok.AllArgsConstructor;
@@ -12,7 +14,7 @@ import java.util.regex.Pattern;
 public class AddContactMenuAction implements MenuAction {
     private ContactsService contactsService;
     private Scanner sc;
-
+    private IoContactsToFile ioContactsToFile;
 
 
     @Override
@@ -27,13 +29,13 @@ public class AddContactMenuAction implements MenuAction {
 //        }
 //            contactsService.add(new Contact(name, phone));
 
-        contactsService.add(new Contact("Петя", "06101565100"));
-        contactsService.add(new Contact("Оля", "06131772141"));
-        contactsService.add(new Contact("Катя", "06134665174"));
-        contactsService.add(new Contact("Олег", "06131471193"));
-            System.out.println("Contacts added");
-            System.out.println("------------------------");
-
+        contactsService.add(new Contact("Петя", ContactType.email, "prtya@gmail.com"));
+        contactsService.add(new Contact("Оля", ContactType.phone, "06131772141"));
+        contactsService.add(new Contact("Катя", ContactType.email, "katya@gmail.com"));
+        contactsService.add(new Contact("Олег", ContactType.phone, "06131471193"));
+        System.out.println("Contacts added");
+        System.out.println("------------------------");
+        ioContactsToFile.write();
     }
 
     private boolean checkPhone(String phone) {

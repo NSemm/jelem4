@@ -46,4 +46,9 @@ public class ContactsList {
                 .filter(s -> s.getPhone().indexOf(phone) != -1)
                 .collect(Collectors.toList()));
     }
+
+    public List<Contact> get() {
+        return (contacts.stream()
+                .collect(Collectors.toList()));
+    }
 }
