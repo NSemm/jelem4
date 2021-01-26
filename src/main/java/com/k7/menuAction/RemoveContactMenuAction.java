@@ -1,6 +1,6 @@
 package com.k7.menuAction;
 
-import com.k7.IoContactsToFile;
+import com.k7.toFile.ContactsToFile;
 import com.k7.service.ContactsService;
 import lombok.AllArgsConstructor;
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class RemoveContactMenuAction implements MenuAction {
     private ContactsService contactsService;
     private Scanner sc;
-    private IoContactsToFile ioContactsToFile;
+    private ContactsToFile contactsToFile;
 
     @Override
     public void doAction() {
@@ -34,7 +34,7 @@ public class RemoveContactMenuAction implements MenuAction {
         }
         System.out.println(name + " deleted");
 
-        ioContactsToFile.write();
+        contactsToFile.write();
     }
 
     @Override

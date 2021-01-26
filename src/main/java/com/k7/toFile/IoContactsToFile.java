@@ -1,4 +1,4 @@
-package com.k7;
+package com.k7.toFile;
 
 import com.k7.contacts.Contact;
 import com.k7.contacts.ContactType;
@@ -12,11 +12,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @AllArgsConstructor
-public class IoContactsToFile {
+public class IoContactsToFile implements ContactsToFile{
     private ContactsService contactsService;
     //private ContactType contactType;
-
-    public void add() {
+@Override
+    public void read() {
         File file = new File("src/main/resources/contacts_t.txt");
         try (Reader reader = new FileReader(file)) {
             Scanner sc = new Scanner(reader);
@@ -29,11 +29,12 @@ public class IoContactsToFile {
             e.printStackTrace();
         }
     }
+    @Override
     public void write() {
         File file = new File("src/main/resources/contacts_t.txt");
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(file))) {
             for (Contact c :contactsService.getAll().get()) {
-                writer.write(c.getName()+"[phone:"+c.getPhone()+"]\n");
+                writer.write(c.getName() + "[" + c.getContactType() + ":" +c.getPhone()+"]\n");
                 writer.flush();
             }
         } catch (FileNotFoundException e) {
