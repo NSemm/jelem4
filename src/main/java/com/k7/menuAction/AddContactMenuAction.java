@@ -14,7 +14,6 @@ public class AddContactMenuAction implements MenuAction {
     private Scanner sc;
     private ContactsToFile contactsToFile;
 
-
     @Override
     public void doAction() {
 //        System.out.println("Enter name of contact");
